@@ -37,6 +37,7 @@ class Game:
         player_name = input("Enter your name: ")
         self.human_player = HumanPlayer(player_name)
         self.computer_player = ComputerPlayer("Computer")
+        self.display_menu()
         
 
     #this startgame function creates player objects & initializes game object. this will serve
@@ -44,11 +45,17 @@ class Game:
 
         while True:
             self.play_round()
+            self.display_scoreboard()
             play_again = input("Do you want to play another round? (yes/no): ")
             if play_again != 'yes':
                 print(f"Final Results:{self.human_player.name} scores {self.human_player.score} & {self.computer_player.name} scores {self.computer_player.score}")
                 self.display_winner()
                 break
+
+    def display_menu(self):
+        print("\nMenu:")
+        print("1. Play Rock, Paper, Scissors")
+        print("2. Quit Game")
 
     def play_round(self):
         print("New round!\n")
@@ -95,6 +102,11 @@ class Game:
 
 
         #covers all possible scenarios & keeps a score
+
+    def display_scoreboard(self):
+        print("\nScoreboard:")
+        print(f"{self.human_player.name}: {self.human_player.score}")
+        print(f"{self.computer_player.name}: {self.computer_player.score}\n")
     
     def display_winner(self):
         if self.human_player.score > self.computer_player.score:
@@ -104,6 +116,9 @@ class Game:
         else:
             print("The game is a tie!")
                 #score determines winner on screen
+    
+    
+
 
     
     
