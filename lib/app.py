@@ -3,6 +3,7 @@ import colorterminal #add color to some text
 
 
 
+
 class HumanPlayer:
     def __init__(self, name):
         self.name = name
@@ -25,15 +26,9 @@ class ComputerPlayer(HumanPlayer):
     #will inherit everything from parent class, and random.choice will allow it get a random choice
 
 class Game:
-    #def __init__(self, human_player, computer_player):
-        #self.human_player = human_player
-        #self.computer_player = computer_player  
-         
-
-        #initializes this object in this class with these two players
     
     def start_game(self):
-        print(colorterminal.ColorText.PURPLE + ' Welcome to Rock, Paper, Scissors!')
+        print(colorterminal.ColorText.BLUE + ' Welcome to Rock, Paper, Scissors!')
         player_name = input("Enter your name: ")
         self.human_player = HumanPlayer(player_name)
         self.computer_player = ComputerPlayer("Computer")
@@ -53,9 +48,43 @@ class Game:
                 break
 
     def display_menu(self):
+        rock = '''
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+'''
+
+        paper = '''
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+'''
+
+        scissors = '''
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+'''
         print("\nMenu:")
         print("1. Play Rock, Paper, Scissors")
-        print("2. Quit Game")
+        print("2. Rules:")
+        print("  - Rock beats Scissors.")
+        print("  - Scissors beats Paper.")
+        print("  - Paper beats Rock.")
+        print("  - If both players choose the same item, it's a tie.\n")
+        print("Images:")
+        print("Rock:\n" + rock)
+        print("Paper:\n" + paper)
+        print("Scissors:\n" + scissors)
 
     def play_round(self):
         print("New round!\n")
