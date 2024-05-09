@@ -3,7 +3,6 @@ import colorterminal #add color to some text
 
 
 
-
 class HumanPlayer:
     def __init__(self, name):
         self.name = name
